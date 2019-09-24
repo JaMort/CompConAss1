@@ -2,6 +2,7 @@ import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 import org.antlr.v4.runtime.CharStreams;
+import java.util.*;
 import java.io.IOException;
 
 public class main {
@@ -48,7 +49,11 @@ public class main {
 
 class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalcVisitor<Double> {
 
+	public static HashMap<String, Double> env = new HashMap<String, Double>();
+
     public Double visitStart(simpleCalcParser.StartContext ctx){
+    for (simpleCalcParser.AssignContext a:ctx.as)
+    	visit(a);
 	return visit(ctx.e);
     };
 
@@ -57,23 +62,35 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     };
     
     public Double visitVariable(simpleCalcParser.VariableContext ctx){
-	System.err.println("Variables are not yet supported -- replacing by -1.0.\n");
-	return Double.valueOf(-1.0);
+    String varname = ctx.x.getText();
+	Double d=env.get(varname);
+	if (d==null){
+	    System.err.println("Variable "+varname+" is not defined.\n");
+	    System.exit(-1);
+	}
+	return d;
     };
     
     public Double visitAddition(simpleCalcParser.AdditionContext ctx){
-    if (ctx.op.equals('+')) return visit(ctx.e1)+visit(ctx.e2);
+    if (ctx.op.getText().equals("+")) return visit(ctx.e1)+visit(ctx.e2);
 	else return visit(ctx.e1)-visit(ctx.e2);
     };
 
     public Double visitMultiplication(simpleCalcParser.MultiplicationContext ctx){
-	if (ctx.op.equals('*')) return visit(ctx.e1)*visit(ctx.e2);
+	if (ctx.op.getText().equals("*")) return visit(ctx.e1)*visit(ctx.e2);
 	else return visit(ctx.e1)/visit(ctx.e2);
     };
 
     public Double visitConstant(simpleCalcParser.ConstantContext ctx){
 	return Double.parseDouble(ctx.c.getText()); 
     };
+
+    public Double visitAssign(simpleCalcParser.AssignContext ctx) {
+    	String varname = ctx.x.getText();
+    	Double v = visit(ctx.e);
+    	env.put(varname, v);
+    	return v;
+    }
     
 }
 
