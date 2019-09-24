@@ -27,6 +27,18 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterCommand(simpleCalcParser.CommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCommand(simpleCalcParser.CommandContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAssign(simpleCalcParser.AssignContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -34,6 +46,18 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAssign(simpleCalcParser.AssignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSequence(simpleCalcParser.SequenceContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSequence(simpleCalcParser.SequenceContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

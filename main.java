@@ -91,6 +91,19 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	env.put(varname, v);
     	return v;
     }
+
+
+    //DOESNT WORK YET. WILL DO NEXT WEEK.
+    public Double visitSequence(simpleCalcParser.SequenceContext ctx) {
+    	for (simpleCalcParser.CommandContext com : ctx.c) {
+    		visit(com);
+    	}
+    	return NULL;
+    };
+
+    public Double visitCommand(simpleCalcParser.CommandContext ctx) {
+    	return visit(ctx);
+    };
     
 }
 

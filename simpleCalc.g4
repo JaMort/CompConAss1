@@ -2,11 +2,15 @@ grammar simpleCalc;
 
 /* A grammar for arithmetic expressions */
 
-start   : (as+=assign)* e=expr EOF ;
-assign  : x=ID '=' e=expr ;
+start   : (s+=sequence)* (as+=assign)* e=expr EOF ;
 
-expr	:
-	| c=FLOAT     	      # Constant
+command : assign
+	| expr
+	;
+assign  : x=ID '=' e=expr ;
+sequence : '{'(c+=command ';')+'}' ;
+
+expr	: c=FLOAT     	      # Constant
 	| x=ID       	      # Variable
 	| '(' e=expr ')'      # Parenthesis
     | e1=expr op=MULT e2=expr # Multiplication

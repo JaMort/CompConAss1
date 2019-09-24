@@ -17,6 +17,16 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitStart(simpleCalcParser.StartContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link simpleCalcParser#command}.
+	 * @param ctx the parse tree
+	 */
+	void enterCommand(simpleCalcParser.CommandContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link simpleCalcParser#command}.
+	 * @param ctx the parse tree
+	 */
+	void exitCommand(simpleCalcParser.CommandContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link simpleCalcParser#assign}.
 	 * @param ctx the parse tree
 	 */
@@ -26,6 +36,16 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAssign(simpleCalcParser.AssignContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link simpleCalcParser#sequence}.
+	 * @param ctx the parse tree
+	 */
+	void enterSequence(simpleCalcParser.SequenceContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link simpleCalcParser#sequence}.
+	 * @param ctx the parse tree
+	 */
+	void exitSequence(simpleCalcParser.SequenceContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link simpleCalcParser#expr}.
