@@ -190,27 +190,53 @@ public class simpleCalcParser extends Parser {
 	}
 
 	public static class CommandContext extends ParserRuleContext {
-		public AssignContext assign() {
-			return getRuleContext(AssignContext.class,0);
-		}
-		public ExprContext expr() {
-			return getRuleContext(ExprContext.class,0);
-		}
 		public CommandContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_command; }
+	 
+		public CommandContext() { }
+		public void copyFrom(CommandContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class CassignContext extends CommandContext {
+		public AssignContext a;
+		public AssignContext assign() {
+			return getRuleContext(AssignContext.class,0);
+		}
+		public CassignContext(CommandContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof simpleCalcListener ) ((simpleCalcListener)listener).enterCommand(this);
+			if ( listener instanceof simpleCalcListener ) ((simpleCalcListener)listener).enterCassign(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof simpleCalcListener ) ((simpleCalcListener)listener).exitCommand(this);
+			if ( listener instanceof simpleCalcListener ) ((simpleCalcListener)listener).exitCassign(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof simpleCalcVisitor ) return ((simpleCalcVisitor<? extends T>)visitor).visitCommand(this);
+			if ( visitor instanceof simpleCalcVisitor ) return ((simpleCalcVisitor<? extends T>)visitor).visitCassign(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class CexprContext extends CommandContext {
+		public ExprContext e;
+		public ExprContext expr() {
+			return getRuleContext(ExprContext.class,0);
+		}
+		public CexprContext(CommandContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof simpleCalcListener ) ((simpleCalcListener)listener).enterCexpr(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof simpleCalcListener ) ((simpleCalcListener)listener).exitCexpr(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof simpleCalcVisitor ) return ((simpleCalcVisitor<? extends T>)visitor).visitCexpr(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -223,17 +249,19 @@ public class simpleCalcParser extends Parser {
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,2,_ctx) ) {
 			case 1:
+				_localctx = new CassignContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(25);
-				assign();
+				((CassignContext)_localctx).a = assign();
 				}
 				break;
 			case 2:
+				_localctx = new CexprContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(26);
-				expr(0);
+				((CexprContext)_localctx).e = expr(0);
 				}
 				break;
 			}

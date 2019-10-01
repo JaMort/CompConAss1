@@ -16,11 +16,19 @@ public interface simpleCalcVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitStart(simpleCalcParser.StartContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link simpleCalcParser#command}.
+	 * Visit a parse tree produced by the {@code Cassign}
+	 * labeled alternative in {@link simpleCalcParser#command}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCommand(simpleCalcParser.CommandContext ctx);
+	T visitCassign(simpleCalcParser.CassignContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Cexpr}
+	 * labeled alternative in {@link simpleCalcParser#command}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCexpr(simpleCalcParser.CexprContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link simpleCalcParser#assign}.
 	 * @param ctx the parse tree

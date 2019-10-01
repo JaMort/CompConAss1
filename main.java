@@ -52,6 +52,8 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
 	public static HashMap<String, Double> env = new HashMap<String, Double>();
 
     public Double visitStart(simpleCalcParser.StartContext ctx){
+    for (simpleCalcParser.SequenceContext s : ctx.s)
+    	visit(s);
     for (simpleCalcParser.AssignContext a:ctx.as)
     	visit(a);
 	return visit(ctx.e);
@@ -65,7 +67,7 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     String varname = ctx.x.getText();
 	Double d=env.get(varname);
 	if (d==null){
-	    System.err.println("Variable "+varname+" is not defined.\n");
+	    System.err.println("Variable " + varname + " is not defined.\n");
 	    System.exit(-1);
 	}
 	return d;
@@ -98,12 +100,17 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	for (simpleCalcParser.CommandContext com : ctx.c) {
     		visit(com);
     	}
-    	return NULL;
+
+    	return 1.0;
     };
 
-    public Double visitCommand(simpleCalcParser.CommandContext ctx) {
-    	return visit(ctx);
+    public Double visitCassign(simpleCalcParser.CassignContext ctx) {
+    	return visit(ctx.a);
     };
+
+    public Double visitCexpr(simpleCalcParser.CexprContext ctx) {
+    	return visit(ctx.e);
+    }
     
 }
 

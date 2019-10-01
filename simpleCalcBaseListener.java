@@ -27,13 +27,25 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCommand(simpleCalcParser.CommandContext ctx) { }
+	@Override public void enterCassign(simpleCalcParser.CassignContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCommand(simpleCalcParser.CommandContext ctx) { }
+	@Override public void exitCassign(simpleCalcParser.CassignContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterCexpr(simpleCalcParser.CexprContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitCexpr(simpleCalcParser.CexprContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

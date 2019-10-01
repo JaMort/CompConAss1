@@ -4,8 +4,8 @@ grammar simpleCalc;
 
 start   : (s+=sequence)* (as+=assign)* e=expr EOF ;
 
-command : assign
-	| expr
+command : a=assign  #Cassign
+	| e=expr #Cexpr
 	;
 assign  : x=ID '=' e=expr ;
 sequence : '{'(c+=command ';')+'}' ;
