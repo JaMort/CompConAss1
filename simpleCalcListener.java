@@ -61,6 +61,102 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitSequence(simpleCalcParser.SequenceContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ORif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterORif(simpleCalcParser.ORifContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ORif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitORif(simpleCalcParser.ORifContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ANDif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterANDif(simpleCalcParser.ANDifContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ANDif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitANDif(simpleCalcParser.ANDifContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Simpleif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterSimpleif(simpleCalcParser.SimpleifContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Simpleif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitSimpleif(simpleCalcParser.SimpleifContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ORifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterORifelse(simpleCalcParser.ORifelseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ORifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitORifelse(simpleCalcParser.ORifelseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ANDifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterANDifelse(simpleCalcParser.ANDifelseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ANDifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitANDifelse(simpleCalcParser.ANDifelseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Simpleifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterSimpleifelse(simpleCalcParser.SimpleifelseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Simpleifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code equals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterEquals(simpleCalcParser.EqualsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code equals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitEquals(simpleCalcParser.EqualsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code notequals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterNotequals(simpleCalcParser.NotequalsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code notequals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitNotequals(simpleCalcParser.NotequalsContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link simpleCalcParser#expr}.
 	 * @param ctx the parse tree

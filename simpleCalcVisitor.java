@@ -42,6 +42,62 @@ public interface simpleCalcVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSequence(simpleCalcParser.SequenceContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ORif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitORif(simpleCalcParser.ORifContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ANDif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitANDif(simpleCalcParser.ANDifContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Simpleif}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimpleif(simpleCalcParser.SimpleifContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ORifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitORifelse(simpleCalcParser.ORifelseContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ANDifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitANDifelse(simpleCalcParser.ANDifelseContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code Simpleifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code equals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEquals(simpleCalcParser.EqualsContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code notequals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNotequals(simpleCalcParser.NotequalsContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link simpleCalcParser#expr}.
 	 * @param ctx the parse tree

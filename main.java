@@ -54,8 +54,10 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     public Double visitStart(simpleCalcParser.StartContext ctx){
     for (simpleCalcParser.SequenceContext s : ctx.s)
     	visit(s);
-    for (simpleCalcParser.AssignContext a:ctx.as)
+    for (simpleCalcParser.AssignContext a : ctx.as)
     	visit(a);
+    for (simpleCalcParser.ConditionalContext c : ctx.cn)
+    	visit(c);
 	return visit(ctx.e);
     };
 
@@ -94,14 +96,12 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	return v;
     }
 
-
-    //DOESNT WORK YET. WILL DO NEXT WEEK.
     public Double visitSequence(simpleCalcParser.SequenceContext ctx) {
     	for (simpleCalcParser.CommandContext com : ctx.c) {
     		visit(com);
     	}
 
-    	return 1.0;
+    	return null;
     };
 
     public Double visitCassign(simpleCalcParser.CassignContext ctx) {
@@ -111,6 +111,92 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     public Double visitCexpr(simpleCalcParser.CexprContext ctx) {
     	return visit(ctx.e);
     }
-    
+
+    public Double visitSimpleif(simpleCalcParser.SimpleifContext ctx) {
+    	if(visit(ctx.c) == 1.0) {
+    		visit(ctx.s);
+    	}
+    	return null;
+    }
+
+    public Double visitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx) {
+    	if(visit(ctx.c) == 1.0) {
+    		visit(ctx.s1);
+    	}
+    	else {
+    		visit(ctx.s2);
+    	}
+    	return null;
+    }
+
+    public Double visitORif(simpleCalcParser.ORifContext ctx) {
+    	if(visit(ctx.c1) == 1.0) {
+    		visit(ctx.s);
+    		return null;
+    	}
+    	for (simpleCalcParser.ConditionContext c : c2) {
+    		if (visit(c) == 1.0) {
+    			visit(ctx.s);
+    			return null;
+    		}
+    	}
+    	return null;
+    }
+
+        public Double visitORif(simpleCalcParser.ORifContext ctx) {
+    	if(visit(ctx.c1) == 1.0) {
+    		visit(ctx.s);
+    		return null;
+    	}
+    	for (simpleCalcParser.ConditionContext c : c2) {
+    		if (visit(c) == 1.0) {
+    			visit(ctx.s);
+    			return null;
+    		}
+    	}
+    	return null;
+    }
+
+    public Double visitEquals(simpleCalcParser.EqualsContext ctx) {
+    	if(visit(ctx.e1).equals(visit(ctx.e2))) {
+    		return 1.0;
+    	}
+    	else return 0.0;
+    }
+
+    public Double visitNotequals(simpleCalcParser.Notequalscontext ctx) {
+    	if(!(visit(ctx.e1).equals(visit(ctx.e2)))) {
+    		return 1.0;
+    	}
+    	else return 0.0;
+    }
+
+    public Double visitGreater(simpleCalcParser.Greatercontext ctx) {
+    	if(Double.parseDouble(visit(ctx.e1)) > Double.parseDouble(visit(ctx.e2))) {
+    		return return 1.0;
+    	}
+    	else return 0.0;
+    }
+
+    public Double visitGreaterEquals(simpleCalcParser.GreaterEqualscontext ctx) {
+    	if(Double.parseDouble(visit(ctx.e1)) >= Double.parseDouble(visit(ctx.e2))) {
+    		return return 1.0;
+    	}
+    	else return 0.0;
+    }
+
+    public Double visitLesser(simpleCalcParser.Lessercontext ctx) {
+    	if(Double.parseDouble(visit(ctx.e1)) < Double.parseDouble(visit(ctx.e2))) {
+    		return return 1.0;
+    	}
+    	else return 0.0;
+    }
+
+    public Double visitLesserEquals(simpleCalcParser.LesserEqualscontext ctx) {
+    	if(Double.parseDouble(visit(ctx.e1)) <= Double.parseDouble(visit(ctx.e2))) {
+    		return return 1.0;
+    	}
+    	else return 0.0;
+    }
 }
 
