@@ -133,29 +133,77 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code equals}
+	 * Enter a parse tree produced by the {@code Equals}
 	 * labeled alternative in {@link simpleCalcParser#condition}.
 	 * @param ctx the parse tree
 	 */
 	void enterEquals(simpleCalcParser.EqualsContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code equals}
+	 * Exit a parse tree produced by the {@code Equals}
 	 * labeled alternative in {@link simpleCalcParser#condition}.
 	 * @param ctx the parse tree
 	 */
 	void exitEquals(simpleCalcParser.EqualsContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code notequals}
+	 * Enter a parse tree produced by the {@code Notequals}
 	 * labeled alternative in {@link simpleCalcParser#condition}.
 	 * @param ctx the parse tree
 	 */
 	void enterNotequals(simpleCalcParser.NotequalsContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code notequals}
+	 * Exit a parse tree produced by the {@code Notequals}
 	 * labeled alternative in {@link simpleCalcParser#condition}.
 	 * @param ctx the parse tree
 	 */
 	void exitNotequals(simpleCalcParser.NotequalsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Greater}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterGreater(simpleCalcParser.GreaterContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Greater}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitGreater(simpleCalcParser.GreaterContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code GreaterEquals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterGreaterEquals(simpleCalcParser.GreaterEqualsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code GreaterEquals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitGreaterEquals(simpleCalcParser.GreaterEqualsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Lesser}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterLesser(simpleCalcParser.LesserContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Lesser}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitLesser(simpleCalcParser.LesserContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code LesserEquals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterLesserEquals(simpleCalcParser.LesserEqualsContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code LesserEquals}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitLesserEquals(simpleCalcParser.LesserEqualsContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link simpleCalcParser#expr}.
