@@ -99,18 +99,6 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSimpleif(simpleCalcParser.SimpleifContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSimpleif(simpleCalcParser.SimpleifContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterORifelse(simpleCalcParser.ORifelseContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -130,18 +118,6 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitANDifelse(simpleCalcParser.ANDifelseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSimpleifelse(simpleCalcParser.SimpleifelseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

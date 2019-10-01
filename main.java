@@ -112,23 +112,6 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	return visit(ctx.e);
     }
 
-    public Double visitSimpleif(simpleCalcParser.SimpleifContext ctx) {
-    	if(visit(ctx.c) == 1.0) {
-    		visit(ctx.s);
-    	}
-    	return null;
-    }
-
-    public Double visitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx) {
-    	if(visit(ctx.c) == 1.0) {
-    		visit(ctx.s1);
-    	}
-    	else {
-    		visit(ctx.s2);
-    	}
-    	return null;
-    }
-
     public Double visitORif(simpleCalcParser.ORifContext ctx) {
     	if(visit(ctx.c1) == 1.0) {
     		visit(ctx.s);

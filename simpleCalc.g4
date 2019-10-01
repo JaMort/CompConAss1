@@ -13,10 +13,8 @@ sequence : '{'(c+=command ';')+'}' ;
 conditional : 'if' '(' (c1=condition) (
 '||' c2+=condition)* ')' 'then' s=sequence #ORif
 		| 'if' '(' (c1=condition) ('&&' c2+=condition)* ')' 'then' s=sequence #ANDif
-		| 'if' '(' (c=condition) ')' 'then' s=sequence #Simpleif
 		| 'if' '(' (c1=condition) ('||' c2+=condition)* ')' 'then' s1=sequence 'else' s2=sequence #ORifelse
 		| 'if' '(' (c1=condition) ('&&' c2+=condition)* ')' 'then' s1=sequence 'else' s2=sequence #ANDifelse
-		| 'if' '(' (c=condition) ')' 'then' s1=sequence 'else' s2=sequence #Simpleifelse
 		;
 
 condition : e1=expr '==' e2=expr #Equals 

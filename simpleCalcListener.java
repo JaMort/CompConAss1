@@ -85,18 +85,6 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitANDif(simpleCalcParser.ANDifContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code Simpleif}
-	 * labeled alternative in {@link simpleCalcParser#conditional}.
-	 * @param ctx the parse tree
-	 */
-	void enterSimpleif(simpleCalcParser.SimpleifContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Simpleif}
-	 * labeled alternative in {@link simpleCalcParser#conditional}.
-	 * @param ctx the parse tree
-	 */
-	void exitSimpleif(simpleCalcParser.SimpleifContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code ORifelse}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
 	 * @param ctx the parse tree
@@ -120,18 +108,6 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitANDifelse(simpleCalcParser.ANDifelseContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code Simpleifelse}
-	 * labeled alternative in {@link simpleCalcParser#conditional}.
-	 * @param ctx the parse tree
-	 */
-	void enterSimpleifelse(simpleCalcParser.SimpleifelseContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code Simpleifelse}
-	 * labeled alternative in {@link simpleCalcParser#conditional}.
-	 * @param ctx the parse tree
-	 */
-	void exitSimpleifelse(simpleCalcParser.SimpleifelseContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Equals}
 	 * labeled alternative in {@link simpleCalcParser#condition}.
