@@ -23,7 +23,8 @@ condition : e1=expr '==' e2=expr #Equals
 		| e1=expr '>=' e2=expr #GreaterEquals
 		| e1=expr '<' e2=expr #Lesser
 		| e1=expr '<=' e2=expr #LesserEquals
-		| '!' c=condition #Negation
+		| '!' '(' c=condition ')' #Negation
+		| '(' c=condition ')' # BracketCond
 		;
 
 expr	: c=FLOAT     	      # Constant

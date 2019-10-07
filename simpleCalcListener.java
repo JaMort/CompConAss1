@@ -193,6 +193,18 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitNegation(simpleCalcParser.NegationContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code BracketCond}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterBracketCond(simpleCalcParser.BracketCondContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code BracketCond}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitBracketCond(simpleCalcParser.BracketCondContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link simpleCalcParser#expr}.
 	 * @param ctx the parse tree

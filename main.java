@@ -237,5 +237,9 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	}
     	else return 1.0;
     }
+
+    public Double visitBracketCond(simpleCalcParser.BracketCondContext ctx) {
+    	return visit(ctx.c);
+    }
 }
 
