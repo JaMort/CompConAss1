@@ -61,18 +61,6 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitSequence(simpleCalcParser.SequenceContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code ORif}
-	 * labeled alternative in {@link simpleCalcParser#conditional}.
-	 * @param ctx the parse tree
-	 */
-	void enterORif(simpleCalcParser.ORifContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code ORif}
-	 * labeled alternative in {@link simpleCalcParser#conditional}.
-	 * @param ctx the parse tree
-	 */
-	void exitORif(simpleCalcParser.ORifContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code ANDif}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
 	 * @param ctx the parse tree
@@ -85,17 +73,17 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitANDif(simpleCalcParser.ANDifContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code ORifelse}
+	 * Enter a parse tree produced by the {@code ORif}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
 	 * @param ctx the parse tree
 	 */
-	void enterORifelse(simpleCalcParser.ORifelseContext ctx);
+	void enterORif(simpleCalcParser.ORifContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code ORifelse}
+	 * Exit a parse tree produced by the {@code ORif}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
 	 * @param ctx the parse tree
 	 */
-	void exitORifelse(simpleCalcParser.ORifelseContext ctx);
+	void exitORif(simpleCalcParser.ORifContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code ANDifelse}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
@@ -108,6 +96,18 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitANDifelse(simpleCalcParser.ANDifelseContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ORifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void enterORifelse(simpleCalcParser.ORifelseContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ORifelse}
+	 * labeled alternative in {@link simpleCalcParser#conditional}.
+	 * @param ctx the parse tree
+	 */
+	void exitORifelse(simpleCalcParser.ORifelseContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Equals}
 	 * labeled alternative in {@link simpleCalcParser#condition}.
@@ -180,6 +180,18 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLesserEquals(simpleCalcParser.LesserEqualsContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code Negation}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterNegation(simpleCalcParser.NegationContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code Negation}
+	 * labeled alternative in {@link simpleCalcParser#condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitNegation(simpleCalcParser.NegationContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code Parenthesis}
 	 * labeled alternative in {@link simpleCalcParser#expr}.

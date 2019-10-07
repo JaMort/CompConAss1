@@ -75,18 +75,6 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterORif(simpleCalcParser.ORifContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitORif(simpleCalcParser.ORifContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterANDif(simpleCalcParser.ANDifContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -99,13 +87,13 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterORifelse(simpleCalcParser.ORifelseContext ctx) { }
+	@Override public void enterORif(simpleCalcParser.ORifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitORifelse(simpleCalcParser.ORifelseContext ctx) { }
+	@Override public void exitORif(simpleCalcParser.ORifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -118,6 +106,18 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitANDifelse(simpleCalcParser.ANDifelseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterORifelse(simpleCalcParser.ORifelseContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitORifelse(simpleCalcParser.ORifelseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -190,6 +190,18 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLesserEquals(simpleCalcParser.LesserEqualsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNegation(simpleCalcParser.NegationContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNegation(simpleCalcParser.NegationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
