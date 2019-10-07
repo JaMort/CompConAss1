@@ -42,6 +42,20 @@ public interface simpleCalcVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSequence(simpleCalcParser.SequenceContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code ANDwhile}
+	 * labeled alternative in {@link simpleCalcParser#loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitANDwhile(simpleCalcParser.ANDwhileContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code ORwhile}
+	 * labeled alternative in {@link simpleCalcParser#loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitORwhile(simpleCalcParser.ORwhileContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code ANDif}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
 	 * @param ctx the parse tree

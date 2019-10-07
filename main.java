@@ -58,6 +58,8 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	visit(a);
     for (simpleCalcParser.ConditionalContext c : ctx.cn)
     	visit(c);
+    for (simpleCalcParser.LoopContext ls : ctx.l)
+    	visit(ls);
 	return visit(ctx.e);
     };
 
@@ -239,7 +241,54 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     }
 
     public Double visitBracketCond(simpleCalcParser.BracketCondContext ctx) {
-    	return visit(ctx.c);
+    	return visit(ctx.c);	
     }
+
+    public Double visitANDwhile(simpleCalcParser.ANDwhileContext ctx) {
+    	boolean isTrue = false;
+    	while(visit(ctx.c1) == 1.0) {
+    		for(simpleCalcParser.ConditionContext c : ctx.c2) {
+    			isTrue = true;
+    			}
+    		if(!isTrue) {
+    			break;
+    			}
+    		else {
+    			visit(ctx.s);
+    			}
+   			}
+   		return 0.0;
+  	}
+
+  	public Double visitORwhile(simpleCalcParser.ORwhileContext ctx) {
+  		boolean isTrue = false;
+  		if (visit(ctx.c1) == 1.0) {
+  			isTrue = true;
+  			}
+  		else { 
+  			for (simpleCalcParser.ConditionContext c : ctx.c2) {
+  				if (visit(c) == 1.0) {
+  					isTrue = true;
+  					break;
+  				}
+  			}
+  		}
+  		while(isTrue) {
+  			visit(ctx.s);
+  			isTrue = false;
+  			if (visit(ctx.c1) == 1.0) {
+  				isTrue = true;
+  				}
+  			else { 
+  				for (simpleCalcParser.ConditionContext c : ctx.c2) {
+  					if (visit(c) == 1.0) {
+  						isTrue = true;
+  						break;
+  					}
+  				}
+  			}
+  		}  			
+  		return 1.0;
+  	}
 }
 

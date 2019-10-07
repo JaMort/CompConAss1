@@ -2,13 +2,17 @@ grammar simpleCalc;
 
 /* A grammar for arithmetic expressions */
 
-start   : (s+=sequence)* (as+=assign)* (cn+=conditional)* e=expr EOF ;
+start   : (s+=sequence)* (as+=assign)* (cn+=conditional)* (l+=loop)* e=expr EOF ;
 
 command : a=assign  #Cassign
 	| e=expr #Cexpr
 	;
 assign  : x=ID '=' e=expr ;
 sequence : '{'(c+=command ';')+'}' ;
+	
+loop: 'while' '(' (c1=condition) ('&&' c2+=condition)* ')' 'do' s=sequence #ANDwhile
+	| 'while' '(' (c1=condition) ('||' c2+=condition)* ')' 'do' s=sequence #ORwhile
+	;
 
 conditional : 'if' '(' (c1=condition) (
 '&&' c2+=condition)* ')' 'then' s=sequence #ANDif

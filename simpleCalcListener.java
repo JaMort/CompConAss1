@@ -61,6 +61,30 @@ public interface simpleCalcListener extends ParseTreeListener {
 	 */
 	void exitSequence(simpleCalcParser.SequenceContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code ANDwhile}
+	 * labeled alternative in {@link simpleCalcParser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void enterANDwhile(simpleCalcParser.ANDwhileContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ANDwhile}
+	 * labeled alternative in {@link simpleCalcParser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void exitANDwhile(simpleCalcParser.ANDwhileContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code ORwhile}
+	 * labeled alternative in {@link simpleCalcParser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void enterORwhile(simpleCalcParser.ORwhileContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code ORwhile}
+	 * labeled alternative in {@link simpleCalcParser#loop}.
+	 * @param ctx the parse tree
+	 */
+	void exitORwhile(simpleCalcParser.ORwhileContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code ANDif}
 	 * labeled alternative in {@link simpleCalcParser#conditional}.
 	 * @param ctx the parse tree
