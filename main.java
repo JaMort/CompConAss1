@@ -114,83 +114,6 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	return visit(ctx.e);
     }
 
-    public Double visitORif(simpleCalcParser.ORifContext ctx) {
-    	if(visit(ctx.c1) == 1.0) {
-    		visit(ctx.s);
-    		return null;
-    	}
-    	for (simpleCalcParser.ConditionContext c : ctx.c2) {
-    		if (visit(c) == 1.0) {
-    			visit(ctx.s);
-    			return null;
-    		}
-    	}
-    	return null;
-    }
-
-    public Double visitORifelse(simpleCalcParser.ORifelseContext ctx) {
-    	if(visit(ctx.c1) == 1.0) {
-    		visit(ctx.s1);
-    		return null;
-    	}
-    	for (simpleCalcParser.ConditionContext c : ctx.c2) {
-    		if (visit(c) == 1.0) {
-    			visit(ctx.s1);
-    			return null;
-    		}
-    	}
-    	visit(ctx.s2);
-    	return null;
-    }
-
-    public Double visitANDif(simpleCalcParser.ANDifContext ctx) {
-    	boolean isTrue;
-    	if(visit(ctx.c1) == 1.0) {
-    		isTrue = true;
-    	}
-    	else {
-    		isTrue = false;
-    	}
-    	if(isTrue) {
-    		for (simpleCalcParser.ConditionContext c : ctx.c2) {
-    			if(visit(c) != 1.0) {
-    				isTrue = false;
-    			}
-    		}
-
-    	}
-    	if(isTrue) {
-    		visit(ctx.s);
-    	}
-    	return null;
-    }
-
-    public Double visitANDifelse(simpleCalcParser.ANDifelseContext ctx) {
-    	boolean isTrue;
-    	if(visit(ctx.c1) == 1.0) {
-    		isTrue = true;
-    	}
-    	else {
-    		isTrue = false;
-    	}
-    	if(isTrue) {
-    		for (simpleCalcParser.ConditionContext c : ctx.c2) {
-    			if(visit(c) != 1.0) {
-    				isTrue = false;
-    			}
-    		}
-
-    	}
-    	if(isTrue) {
-    		visit(ctx.s1);
-    	}
-    	else {
-    		visit(ctx.s2);
-    	}
-    	return null;
-    }
-
-
     public Double visitEquals(simpleCalcParser.EqualsContext ctx) {
     	if(visit(ctx.e1).equals(visit(ctx.e2))) {
     		return 1.0;
@@ -244,51 +167,42 @@ class Interpreter extends AbstractParseTreeVisitor<Double> implements simpleCalc
     	return visit(ctx.c);	
     }
 
-    public Double visitANDwhile(simpleCalcParser.ANDwhileContext ctx) {
-    	boolean isTrue = false;
-    	while(visit(ctx.c1) == 1.0) {
-    		for(simpleCalcParser.ConditionContext c : ctx.c2) {
-    			isTrue = true;
-    			}
-    		if(!isTrue) {
-    			break;
-    			}
-    		else {
-    			visit(ctx.s);
-    			}
-   			}
-   		return 0.0;
-  	}
+    public Double visitAndCond(simpleCalcParser.AndCondContext ctx) {
+    	if(visit(ctx.c1) == 1.0 && visit(ctx.c2) == 1.0) {
+    		return 1.0;
+    	}
+    	else return 0.0;
+    }
 
-  	public Double visitORwhile(simpleCalcParser.ORwhileContext ctx) {
-  		boolean isTrue = false;
-  		if (visit(ctx.c1) == 1.0) {
-  			isTrue = true;
-  			}
-  		else { 
-  			for (simpleCalcParser.ConditionContext c : ctx.c2) {
-  				if (visit(c) == 1.0) {
-  					isTrue = true;
-  					break;
-  				}
-  			}
-  		}
-  		while(isTrue) {
-  			visit(ctx.s);
-  			isTrue = false;
-  			if (visit(ctx.c1) == 1.0) {
-  				isTrue = true;
-  				}
-  			else { 
-  				for (simpleCalcParser.ConditionContext c : ctx.c2) {
-  					if (visit(c) == 1.0) {
-  						isTrue = true;
-  						break;
-  					}
-  				}
-  			}
-  		}  			
-  		return 1.0;
-  	}
+    public Double visitOrCond(simpleCalcParser.OrCondContext ctx) {
+    	if(visit(ctx.c1) == 1.0 || visit(ctx.c2) == 1.0) {
+    		return 1.0;
+    	}
+    	else return 0.0;
+    }
+
+    public Double visitSimpleif(simpleCalcParser.SimpleifContext ctx) {
+    	if(visit(ctx.c) == 1.0) {
+    		visit(ctx.s);
+    	}
+    	return null;
+    }
+
+    public Double visitIfelse(simpleCalcParser.IfelseContext ctx) {
+    	if(visit(ctx.c) == 1.0) {
+    		visit(ctx.s1);
+    	}
+    	else {
+    		visit(ctx.s2);
+    	}
+    	return null;
+    }
+
+    public Double visitWhile(simpleCalcParser.WhileContext ctx) {
+    	while(visit(ctx.c) == 1.0) {
+    		visit(ctx.s);
+    	}
+    	return null;
+    }
 }
 

@@ -10,15 +10,11 @@ command : a=assign  #Cassign
 assign  : x=ID '=' e=expr ;
 sequence : '{'(c+=command ';')+'}' ;
 	
-loop: 'while' '(' (c1=condition) ('&&' c2+=condition)* ')' 'do' s=sequence #ANDwhile
-	| 'while' '(' (c1=condition) ('||' c2+=condition)* ')' 'do' s=sequence #ORwhile
+loop: 'while' '(' (c=condition) ')' 'do' s=sequence #While
 	;
 
-conditional : 'if' '(' (c1=condition) (
-'&&' c2+=condition)* ')' 'then' s=sequence #ANDif
-		| 'if' '(' (c1=condition) ('||' c2+=condition)* ')' 'then' s=sequence #ORif
-		| 'if' '(' (c1=condition) ('&&' c2+=condition)* ')' 'then' s1=sequence 'else' s2=sequence #ANDifelse
-		| 'if' '(' (c1=condition) ('||' c2+=condition)* ')' 'then' s1=sequence 'else' s2=sequence #ORifelse
+conditional : 'if' '(' (c=condition) ')' 'then' s=sequence #Simpleif
+		| 'if' '(' (c=condition) ')' 'then' s1=sequence 'else' s2=sequence #Ifelse
 		;
 
 condition : e1=expr '==' e2=expr #Equals 
@@ -29,6 +25,8 @@ condition : e1=expr '==' e2=expr #Equals
 		| e1=expr '<=' e2=expr #LesserEquals
 		| '!' '(' c=condition ')' #Negation
 		| '(' c=condition ')' # BracketCond
+		| c1=condition '&&' c2=condition #AndCond
+		| c1=condition '||' c2=condition #OrCond
 		;
 
 expr	: c=FLOAT     	      # Constant

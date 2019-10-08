@@ -1,5 +1,5 @@
 {x = 20; y = 42; z = 43;}
 
-while (x < y || x < 1) do {x = x + 1;}
+if (x < 1) then {x = x+1;} else {x = x-1;}
 
 x

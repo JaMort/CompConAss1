@@ -75,73 +75,49 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterANDwhile(simpleCalcParser.ANDwhileContext ctx) { }
+	@Override public void enterWhile(simpleCalcParser.WhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitANDwhile(simpleCalcParser.ANDwhileContext ctx) { }
+	@Override public void exitWhile(simpleCalcParser.WhileContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterORwhile(simpleCalcParser.ORwhileContext ctx) { }
+	@Override public void enterSimpleif(simpleCalcParser.SimpleifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitORwhile(simpleCalcParser.ORwhileContext ctx) { }
+	@Override public void exitSimpleif(simpleCalcParser.SimpleifContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterANDif(simpleCalcParser.ANDifContext ctx) { }
+	@Override public void enterIfelse(simpleCalcParser.IfelseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitANDif(simpleCalcParser.ANDifContext ctx) { }
+	@Override public void exitIfelse(simpleCalcParser.IfelseContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterORif(simpleCalcParser.ORifContext ctx) { }
+	@Override public void enterOrCond(simpleCalcParser.OrCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitORif(simpleCalcParser.ORifContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterANDifelse(simpleCalcParser.ANDifelseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitANDifelse(simpleCalcParser.ANDifelseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterORifelse(simpleCalcParser.ORifelseContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitORifelse(simpleCalcParser.ORifelseContext ctx) { }
+	@Override public void exitOrCond(simpleCalcParser.OrCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -159,37 +135,13 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterNotequals(simpleCalcParser.NotequalsContext ctx) { }
+	@Override public void enterAndCond(simpleCalcParser.AndCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitNotequals(simpleCalcParser.NotequalsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGreater(simpleCalcParser.GreaterContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGreater(simpleCalcParser.GreaterContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGreaterEquals(simpleCalcParser.GreaterEqualsContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGreaterEquals(simpleCalcParser.GreaterEqualsContext ctx) { }
+	@Override public void exitAndCond(simpleCalcParser.AndCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -207,13 +159,13 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLesserEquals(simpleCalcParser.LesserEqualsContext ctx) { }
+	@Override public void enterGreaterEquals(simpleCalcParser.GreaterEqualsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLesserEquals(simpleCalcParser.LesserEqualsContext ctx) { }
+	@Override public void exitGreaterEquals(simpleCalcParser.GreaterEqualsContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -231,6 +183,30 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNotequals(simpleCalcParser.NotequalsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNotequals(simpleCalcParser.NotequalsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLesserEquals(simpleCalcParser.LesserEqualsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLesserEquals(simpleCalcParser.LesserEqualsContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterBracketCond(simpleCalcParser.BracketCondContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -238,6 +214,18 @@ public class simpleCalcBaseListener implements simpleCalcListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitBracketCond(simpleCalcParser.BracketCondContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterGreater(simpleCalcParser.GreaterContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitGreater(simpleCalcParser.GreaterContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
